@@ -1,5 +1,5 @@
 """
-ASGI config for devops_backend project.
+ASGI config for registration_server project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'devops_backend.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'registration_server.settings')
 
 application = get_asgi_application()
