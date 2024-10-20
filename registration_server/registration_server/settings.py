@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 from decouple import config 
-import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -82,6 +81,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = config('EMAIL_HOST_USER') 
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+DJANGO_SUPERUSER_USERNAME = config('DJANGO_SUPERUSER_USERNAME')
+DJANGO_SUPERUSER_PASSWORD = config('DJANGO_SUPERUSER_PASSWORD')
+DJANGO_SUPERUSER_EMAIL = config('DJANGO_SUPERUSER_EMAIL')
 
 
 # Database
