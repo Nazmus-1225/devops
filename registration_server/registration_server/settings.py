@@ -75,12 +75,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'registration_server.wsgi.application'
 # settings.py
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  # Example with Gmail SMTP
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = config('EMAIL_HOST_USER') 
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DJANGO_SUPERUSER_USERNAME = config('DJANGO_SUPERUSER_USERNAME')
 DJANGO_SUPERUSER_PASSWORD = config('DJANGO_SUPERUSER_PASSWORD')
 DJANGO_SUPERUSER_EMAIL = config('DJANGO_SUPERUSER_EMAIL')

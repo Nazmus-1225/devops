@@ -11,13 +11,15 @@ from django.utils import timezone
 @api_view(['POST'])
 def createCourse(request):
         user_token = request.META.get('HTTP_AUTHORIZATION').split()[1]
+        
         if not is_user_admin(user_token):
             return Response({'error': 'Permission denied. Admin role required.'}, status=status.HTTP_403_FORBIDDEN)
-
+        
         serializer = CourseSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+        
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['DELETE'])
@@ -38,7 +40,6 @@ def createSemester(request):
         user_token = request.META.get('HTTP_AUTHORIZATION').split()[1]
         if not is_user_admin(user_token):
             return Response({'error': 'Permission denied. Admin role required.'}, status=status.HTTP_403_FORBIDDEN)
-
         serializer = SemesterSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -80,3 +81,17 @@ def addSemester(request):
 
         
         return Response({'error': 'Authentication failed.'}, status=status.HTTP_403_FORBIDDEN)
+
+@api_view(['GET'])
+def getCourses(request):
+    print(request)
+    courses = Course.objects.all()
+    serializer = CourseSerializer(courses, many=True)
+    print(courses)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+def getSemesters(request):
+    semesters = Semester.objects.all()
+    serializer = SemesterSerializer(semesters, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)

@@ -1,0 +1,65 @@
+<div>
+    <h2>Courses</h2>
+    <ul>
+      <li *ngFor="let course of courses">
+        <h3>{{ course.course_name }}</h3>
+        <p><strong>Instructor:</strong> {{ course.instructor }}</p>
+        <p><strong>Credits:</strong> {{ course.credit }}</p>
+      </li>
+    </ul>
+    <form (ngSubmit)="addCourse()">
+        <div>
+            <label>ID: </label>
+            <input type="text" id="course_id" [(ngModel)]="newCourse.course_id" name="course_id" required>
+          </div>
+        
+        <div>
+          <label>Name: </label>
+          <input type="text" id="course_name" [(ngModel)]="newCourse.course_name" name="course_name" required>
+        </div>
+    
+        <div>
+            <label>Instructor: </label>
+            <input type="text" id="instructor" [(ngModel)]="newCourse.instructor" name="instructor" required>
+        </div>
+        <div>
+            <label>Credit: </label>
+            <input type="text" id="credit" [(ngModel)]="newCourse.credit" name="credit" required>
+        </div>
+    
+        <button type="submit">add Course</button>
+      </form>
+</div>
+
+<div>
+    <h2>Semesters</h2>
+    <ul>
+      <li *ngFor="let semester of semesters">
+        <h3>{{ semester.semester_name }}</h3>
+        <p><strong>Start:</strong> {{ semester.start_date }}</p>
+        <p><strong>End:</strong> {{ semester.end_date }}</p>
+      </li>
+    </ul>
+    <form (ngSubmit)="addSemester()">
+        <div>
+            <label>ID: </label>
+            <input type="text" id="semester_id" [(ngModel)]="newSemester.semester_id" name="semester_id" required>
+          </div>
+
+        <div>
+          <label>Name: </label>
+          <input type="text" id="semester_name" [(ngModel)]="newSemester.semester_name" name="semester_name" required>
+        </div>
+    
+        <div>
+            <label>Start: </label>
+            <input type="text" id="start_date" [(ngModel)]="newSemester.start_date" name="start_date" required>
+        </div>
+        <div>
+            <label>End: </label>
+            <input type="text" id="end_date" [(ngModel)]="newSemester.end_date" name="end_date" required>
+        </div>
+    
+        <button type="submit">add Semester</button>
+      </form>
+</div>
